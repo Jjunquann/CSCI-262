@@ -1,0 +1,125 @@
+Frequent tested topics
+✔ Authentication bases
+✔ Salting
+✔ Password attacks
+✔ Access control list vs capabilities
+✔ ABAC example
+✔ BLP vs Biba
+✔ Inference (definition + direct/indirect)
+✔ Client puzzles
+✔ Syn cookies
+✔ Amplification attacks
+✔ Buffer overflow explanation
+✔ XSS
+✔ Malware classification
+✔ Honeypots
+✔ Signature vs anomaly IDS
+✔ Data ageing
+
+a) 2 commmon authentication base
+- something you know (password/PIN)
+- something you have (token)
+
+b) Common DoS attack resource targets:
+- Network Bandwidth
+- Computational resource(cpu/memory)
+
+c) In multilevel access control each subject/object is given
+- A security label (classification + category set)
+
+d) Canary Values protect against
+- stack buffer overflow by placing a random value be fore the return address
+
+e) Lamport's OTP relies on hash functions being one-way (pre-image resistant)
+
+f) How does UNIX protects user password?
+- Stores hashes in /etc/shadow using salt. Only privileged process can access.
+
+g) Explain which two method of generating password is better?
+- Compare entropy between 2
+- N = possibilities
+- Entropy Log2N
+
+h) Describe 2 types of error in authentication systems
+- FAR false acceptance rate, attacker accepted
+- FRR false rejection rate, legitimate user rejected
+
+i) Access Control Policies
+- Discretionary Access Control (DAC)
+Up to user discretion to specify who have access
+- Mandatory Access Control (MAC)
+Control access based on comparing security labels with system policies 
+- Role Based Access Control (RBAC)
+based on user's role
+- Attribute-based Access Control (ABAC)
+based on user's attribute
+
+j) Access Control Matrix (ACM)
+Name and give example of of each list of representation
+- ACL 
+Spellbook
+RogueCarol: read,write
+- Capabilities
+RogueCarol
+treasure: read
+spellbook: read,write
+
+Give an example of ABAC
+Only nurses on duty in ward A can access Patients A records
+
+k) Client Based Puzzle
+h(C,Ns,Nc,Y) = 000...000X
+Describe the components
+h: hash function
+C: client identity
+Ns: server's nonce
+Nc: client's nonce
+Y: solution of the puzzle
+How much work is required to solve the puzzle?
+2^k
+What is k?
+The number of bit missing, determines complexity.
+What is the purpose of the puzzle?
+Ensure client commit resource to authentication first
+What is the context of this diagram?
+- Contruction of client puzzles to mitigate DoS
+What is h?
+- The server's hash function
+What is sent to the client?
+Sub-puzzle x[j](k+1,L)
+
+Two classes of intruder IDS looks for are
+Misfeasors(Insider) and Masqueraders(Outsiders)
+
+What does master password protect?
+encrypted password vault
+
+CAPTCHA is capable of distinguishing humans from robots
+
+Data aging ensures older behavioural statistics are down-weighted in IDS profile
+
+Honeypot
+- decoy system to identify suspicious traffic
+- study attacker, divert real system
+
+Phising Emails are sent in bulk because
+- it relies on probability
+
+Inference is the derivation of sensitive information from non-sensitive aggregate data
+
+Online vs offline attacks differ in that:
+Online attacks interact with the live authentication system; offline attacks test guesses without system rate-limiting.
+
+The purpose of sanitization in the context of auditing is removing sensitive information before releasing.
+
+Firewalls cannot protect against insider attacks and malware.
+
+Countermeasures to flooding
+- Time out
+- Random dropping
+- Client Puzzles
+- Syn cookies
+Models
+BLP - Confidentiality
+Biba - Integrity
+Chinese Wall (Brewer and Nash) 
